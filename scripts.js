@@ -16,35 +16,63 @@ function round(computerChoice, playerChoice){
     console.log("Player: " + playerChoice);
     if(computerChoice===playerChoice)
     {
-        return "Draw!";
+        return "draw";
     }
     else if (computerChoice==="rock" && playerChoice==="paper")
     {
-        return "Player wins!";
+        return "player";
     }
     else if (computerChoice==="rock" && playerChoice==="scissors")
     {
-        return "Computer wins!";
+        return "computer";
     }
     else if (computerChoice==="paper" && playerChoice==="rock")
     {
-        return "Computer wins!";
+        return "computer";
     }
     else if (computerChoice==="paper" && playerChoice==="scissors")
     {
-        return "Player wins!";
+        return "player";
     }
     else if (computerChoice==="scissors" && playerChoice==="rock")
     {
-        return "Player wins!";
+        return "player";
     }
     else if (computerChoice==="scissors" && playerChoice==="paper")
     {
-        return "Computer wins!";
+        return "computer";
     }
     else{
-        return "Invalid input! Try again!";
+        return "invalid";
     }
 }
 
-console.log(round(getComputerChoice(), getPlayerChoice()));
+function game(){
+    let roundResult;
+    let computerPoints=0;
+    let playerPoints=0;
+    for(let i=0; i<5; i++){
+        roundResult=round(getComputerChoice(), getPlayerChoice());
+        if (roundResult==="player"){
+            console.log("Player gets a point!");
+            playerPoints++;
+        }
+        else if (roundResult==="computer"){
+            console.log("Computer gets a point!");
+            computerPoints++;
+        }
+        else if (roundResult==="draw"){
+            console.log("Draw!");
+            i--;
+        }
+        else{
+            console.log("Wrong input!");
+            i--;
+        }
+        console.log("Score: Computer-" + computerPoints + " Player-" + playerPoints);
+    }
+    if(playerPoints>computerPoints) console.log("Player wins with score " + playerPoints + " - " + computerPoints);
+    else console.log("Computer wins with score " + computerPoints + " - " + playerPoints);
+}
+
+game();
