@@ -70,3 +70,38 @@ button{
     gap: 2em;
 }
 
+@media only screen
+{
+    header{
+        font-size: 24px;
+    }
+    
+    #score{
+        gap: 50px;
+        flex-wrap: wrap;
+    }
+
+    img{
+        max-width: 125px;
+        max-height: 125px;
+        padding: 15px;
+    }
+    
+    #score #player-score,
+    #score #computer-score{
+        gap: 10px;
+    }
+    
+    #player-score p,
+    #computer-score p{
+        font-size: 12px;
+    }
+    
+    #buttons{
+        gap: 1em;
+        flex-wrap: wrap;
+    }
+
+    
+
+}
