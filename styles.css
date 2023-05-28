@@ -46,6 +46,7 @@ img{
 .rps-btn{
     background-color: white;
     border-radius: 100%;
+    border-width: thick;
 }
 
 #score #player-score,
@@ -68,6 +69,7 @@ img{
     display: flex;
     justify-content: center;
     gap: 2em;
+    border-width: thick;
 }
 
 #winner-text{
