@@ -45,7 +45,9 @@ function givePointTo(whoGainsPoint){
     score.textContent = "SCORE - 1";
 }
 
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll(".rps-btn");
+
+const restart = document.querySelector('#restart');
 
 let playerScore = 0;
 const playerScoreUpdate = document.querySelector(`#player-score-number`);
@@ -58,10 +60,10 @@ const winnerText=document.querySelector("#winner-text");
 const playerImage = document.querySelector("#player-pick");
 const computerImage = document.querySelector("#computer-pick");
 
-const controller = new AbortController();
-
     buttons.forEach(button => {
     button.addEventListener('click', event => {
+        if(playerScore < 5 && computerScore < 5)
+        {
         let computerChoice=getComputerChoice();
         let playerChoice=event.target.id;
         result=playRound(computerChoice, playerChoice);
@@ -86,15 +88,19 @@ const controller = new AbortController();
         playerImage.setAttribute('src', `images/${playerChoice}.png`);
         computerImage.setAttribute('src', `images/${computerChoice}.png`);
 
-        if (playerScore >= 5) {
-            winnerText.textContent = "You won!";
-            controller.abort()
-        }
+        if (playerScore >= 5) winnerText.textContent = "You won!";
+        if (computerScore >= 5) winnerText.textContent = "Computer won!";
 
-        if (computerScore >= 5) {
-            winnerText.textContent = "Computer won!";
-            controller.abort()
         }
-        
-        }, {signal: controller.signal});
+        });
     });
+
+    restart.addEventListener('click', event => {
+        playerScore=0;
+        playerScoreUpdate.textContent = `SCORE - ${playerScore}`;
+        computerScore=0;
+        computerScoreUpdate.textContent = `SCORE - ${computerScore}`;
+        playerImage.setAttribute('src', `images/begginning.png`);
+        computerImage.setAttribute('src', `images/begginning.png`);
+        winnerText.textContent = "Restart! Pick a weapon!";
+    })
