@@ -7,11 +7,11 @@ function getComputerChoice(){
     return rockPaperScissors[getRandomInt(3)];
 }
 
-function getPlayerChoice(){
+/*function getPlayerChoice(){
      return prompt("Enter your choice:").toLowerCase();
-}
+}*/
 
-function round(computerChoice, playerChoice){
+function playRound(computerChoice, playerChoice){
     console.log("Computer: " + computerChoice);
     console.log("Player: " + playerChoice);
     if(computerChoice===playerChoice)
@@ -47,32 +47,9 @@ function round(computerChoice, playerChoice){
     }
 }
 
-function game(){
-    let roundResult;
-    let computerPoints=0;
-    let playerPoints=0;
-    for(let i=0; i<5; i++){
-        roundResult=round(getComputerChoice(), getPlayerChoice());
-        if (roundResult==="player"){
-            console.log("Player gets a point!");
-            playerPoints++;
-        }
-        else if (roundResult==="computer"){
-            console.log("Computer gets a point!");
-            computerPoints++;
-        }
-        else if (roundResult==="draw"){
-            console.log("Draw!");
-            i--;
-        }
-        else{
-            console.log("Wrong input!");
-            i--;
-        }
-        console.log("Score: Computer-" + computerPoints + " Player-" + playerPoints);
-    }
-    if(playerPoints>computerPoints) console.log("Player wins with score " + playerPoints + " - " + computerPoints);
-    else console.log("Computer wins with score " + computerPoints + " - " + playerPoints);
-}
-
-game();
+const buttons = document.querySelectorAll("button");
+buttons.forEach(button => {
+    button.addEventListener('click', event => {
+            alert(playRound(getComputerChoice(), event.target.id));
+        });
+    });
