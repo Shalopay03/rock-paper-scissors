@@ -72,6 +72,10 @@ button{
 
 #winner-text{
     font-size: 36px;
+    background-color:rgb(49, 49, 49);
+    color: rgb(245, 245, 88);
+    align-self: stretch;
+    padding: 8px;
 }
 
 @media only screen and (max-width: 600px)
@@ -104,6 +108,13 @@ button{
     #buttons{
         gap: 1em;
         flex-wrap: wrap;
+    }
+
+    #winner-text{
+        font-size: 16px;
+        background-color:rgb(49, 49, 49);
+        color: rgb(245, 245, 88);
+        align-self: stretch;
     }
 
     
