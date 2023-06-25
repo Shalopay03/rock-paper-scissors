@@ -6,4 +6,4 @@ You can restart the game whenever you want.\
 
 Technologies used: HTML, CSS, Javascript.
 
-Link to a deplyed webpage: https://shalopay03.github.io/rock-paper-scissors/
+Link to a deplyed webpage: https://shalodev.github.io/rock-paper-scissors/
